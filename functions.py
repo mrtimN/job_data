@@ -57,13 +57,7 @@ def enrich_dataset(job_title, page, language, worktime, sector, dataframe):
     post_date_list = []
     for job_offer in job_offer_list:
         post_date_list.append(handle_date(job_offer.find(['time']).get_text()))
-    
-    # scrape salary - only possible with login
-    #salary_list = []
-    #for job_offer in job_offer_list:
-        #job_offer.find_all(['div'], attrs={'class': 'res-lgmafx'})[0]
-        #salary_list.append(job_offer.find(['span'], attrs={'class': 'res-1fad2gj'}).get_text())
-
+        
     # scrape and wrangle remote 
     job_remote_list = []
     for job_offer in job_offer_list:
@@ -84,12 +78,9 @@ def enrich_dataset(job_title, page, language, worktime, sector, dataframe):
     df_enrich['job_title'] = job_title_list
     df_enrich['company_name'] = company_name_list
     df_enrich['post_date'] = post_date_list
-    #df_enrich[''] = number_of_employees
-    #df_enrich[''] = num_applicants
     df_enrich['job_type'] = job_type_list
     df_enrich['job_remote'] = job_remote_list
-    df_enrich['language'] = language_list    
-    #df_enrich[''] = salary_list
+    df_enrich['language'] = language_list
     df_enrich['sector'] = sector_list
     df_enrich['source'] = source_list
     df_enrich['search_term'] = search_term_list
