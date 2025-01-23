@@ -213,7 +213,7 @@ def replace_sectors(row):
     'Broadcast Media Production and Distribution': 'Media',
     'Online and Mail Order Retail': 'Commerce',
     'Computer and Network Security': 'Technology',
-    'Business Consulting and Services': 'Consulting',
+    'Business Consulting and Services': 'Business',
     'Human Resources': 'Human Resources',
     'Travel Arrangements': 'Travel',
     'Rail Transportation': 'Transportation',
