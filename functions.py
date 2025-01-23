@@ -129,7 +129,6 @@ def handle_date(stepstone_post_date):
            date = date
     return date.strftime('%d-%m-%Y')
 
-# 3 job_type wrangling: extract_job_type for NaN with keywords and 'Unknown'
 def replace_nan_with_job_level(row):
     job_level_mapping = {
         'Senior': 'Senior Level',
