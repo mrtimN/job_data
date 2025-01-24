@@ -4,8 +4,8 @@ from bs4 import BeautifulSoup
 from curl_cffi import requests as cureq
 from datetime import datetime, timedelta
 
+# Load a CSV file into a pandas DataFrame.
 def load_data(filepath):
-    """Load a CSV file into a pandas DataFrame."""
     return pd.read_csv(filepath)
     
 # sending request to stepstone server, returning response as soup
@@ -131,6 +131,7 @@ def handle_date(stepstone_post_date):
            date = date
     return date.strftime('%d-%m-%Y')
 
+# job level mapping
 def replace_nan_with_job_level(row):
     job_level_mapping = {
         'Senior': 'Senior Level',
@@ -175,6 +176,7 @@ def replace_nan_with_job_level(row):
             if re.search(r'\b' + re.escape(keyword) + r'\b', row['job_level'], re.IGNORECASE):
                 return mapping
 
+# sector mapping
 def replace_sectors(row):
     sector_mapping = {
     'Utilities': 'Energy',
