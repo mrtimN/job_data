@@ -8,6 +8,7 @@ def load_data(filepath):
     """Load a CSV file into a pandas DataFrame."""
     return pd.read_csv(filepath)
     
+# sending request to stepstone server, returning response as soup
 def scrape_stepstone(job_title, page, language, worktime, sector):
     url = f'https://www.stepstone.de/jobs/{worktime}/{job_title}/in-berlin?radius=30&whereType=autosuggest&page={page}action=facet_selected%3bworktypes%3b80001&fdl={language}&se={sector}&wci=419239&sort=1&action=sort_relevance'
 
@@ -20,6 +21,7 @@ def scrape_stepstone(job_title, page, language, worktime, sector):
     soup = BeautifulSoup(response.content, 'html.parser')
     return soup
 
+#  scraping the result, returning dataframe
 def enrich_dataset(job_title, page, language, worktime, sector, dataframe):
     df_base = dataframe
     df_enrich = dataframe.drop(dataframe.index)
